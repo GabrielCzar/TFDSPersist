@@ -12,5 +12,4 @@ public class SessionConfiguration {
     public LettuceConnectionFactory connectionFactory() {
         return new LettuceConnectionFactory();
     }
-
 }

@@ -29,25 +29,32 @@ public class User implements UserDetails {
     private @ManyToMany(mappedBy = "participants") Set<Group> groups;
 
     // Additional
-    private @JsonIgnore String password;
-    private String recoveryToken;
     private @Transient String url;
-    private Boolean isEnable;
-    private String [] roles;
+    private @JsonIgnore String password;
+    private @JsonIgnore String recoveryToken;
+    private @JsonIgnore Boolean isEnable = true;
+    private @JsonIgnore String [] roles;
 
     public User() { }
 
-    public User(String name, String email, Set<Group> groups) {
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        setPassword(password);
+    }
+
+    public User(String name, String email, String password, Set<Group> groups) {
         this.name = name;
         this.email = email;
         this.groups = groups;
+        setPassword(password);
     }
 
     public void setPassword(String password) {
         this.password = PASSWORD_ENCODER.encode(password);
     }
 
-    @Override
+    @Override @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return AuthorityUtils.createAuthorityList(roles);
     }
@@ -62,22 +69,22 @@ public class User implements UserDetails {
         return email;
     }
 
-    @Override
+    @Override @JsonIgnore
     public boolean isAccountNonExpired() {
         return true;
     }
 
-    @Override
+    @Override @JsonIgnore
     public boolean isAccountNonLocked() {
         return true;
     }
 
-    @Override
+    @Override @JsonIgnore
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
-    @Override
+    @Override @JsonIgnore
     public boolean isEnabled() {
         return isEnable;
     }

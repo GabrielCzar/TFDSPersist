@@ -1,7 +1,11 @@
 package com.dspersist.bootstrap;
 
 import com.dspersist.models.Post;
+import com.dspersist.models.User;
 import com.dspersist.repositories.PostRepository;
+import com.dspersist.repositories.UserRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -14,9 +18,18 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
     @Autowired
     private PostRepository postRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
        // initDataMongo();
+        //initUsers();
+    }
+
+    private void initUsers () {
+        User user = new User("Gabriel", "gabrielcesar.a.l@gmail.com", "gabriel");
+        userRepository.save(user);
     }
 
     // Insert in MongoDB
