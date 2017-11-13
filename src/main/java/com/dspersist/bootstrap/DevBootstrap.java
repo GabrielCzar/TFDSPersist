@@ -28,6 +28,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
     }
 
     private void initUsers () {
+        userRepository.deleteAll();
         User user = new User("Gabriel", "gabrielcesar.a.l@gmail.com", "gabriel");
         userRepository.save(user);
     }
