@@ -4,15 +4,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -26,7 +26,7 @@ public class User implements UserDetails {
     private @Id @GeneratedValue(strategy =  GenerationType.IDENTITY) Long id;
 
     // Content
-    @NotBlank(message = "O Nome é obrigatório")
+    //@NotBlank(message = "O Nome é obrigatório")
     private String name;
     @Column(unique = true) @Email(message = "O email é inválido")
     private String email;
@@ -38,7 +38,11 @@ public class User implements UserDetails {
     private @JsonIgnore String password;
     private @JsonIgnore String recoveryToken;
     private @JsonIgnore Boolean isEnable = true;
-    private @JsonIgnore String [] roles;
+    @ManyToMany(fetch = FetchType.EAGER)
+        @JoinTable(name="role_user",
+                joinColumns=@JoinColumn(name="user_id"),
+                inverseJoinColumns=@JoinColumn(name="role_id"))
+    private @JsonIgnore List<Role> roles = new ArrayList<>();
 
     public User() { }
 
@@ -55,13 +59,22 @@ public class User implements UserDetails {
         setPassword(password);
     }
 
+    public List<Role> getRoles() {
+        return this.roles;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
     public void setPassword(String password) {
         this.password = PASSWORD_ENCODER.encode(password);
     }
 
     @Override @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return AuthorityUtils.createAuthorityList(roles);
+        return roles;
     }
 
     @Override
