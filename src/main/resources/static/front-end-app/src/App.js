@@ -5,7 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
 import reducer from './reducer'
 
-import HomePage from './pages/HomePage'
+import AppPage from './pages/AppPage'
 
 const store = createStore(
   reducer,
@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <HomePage  />
+        <AppPage  />
       </Provider>
     );
   }

@@ -1,6 +1,15 @@
 import React from 'react'
 
 export default class FormLogin extends React.Component {
+
+    async componentDidMouth() {
+	const baseUrl = 'http://localhost:8080/login'
+	const opts = {
+	   // 'Authorization': 'Basic YWRtaW46YWRtaW4=',
+	    'Content-type': 'application/x-www-form-urlencoded'
+	}
+    }
+
     render() {
         return (
             <form>

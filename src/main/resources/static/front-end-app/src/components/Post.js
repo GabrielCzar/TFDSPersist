@@ -33,38 +33,39 @@ export default class Post extends Component {
 
     render () {
         return (
-            <div class="card">
-            <header class="card-header">
-                <p class="card-header-title">
-                    Disciplina
+            <div className="card">
+            <header className="card-header">
+                <p className="card-header-title">
+                    { this.props.post.title || 'Disciplina'}
                 </p>
-                <a href="#opts" class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                <a href="#opts" className="card-header-icon" aria-label="more options">
+                <span className="icon">
+                    <i className="fa fa-angle-down" aria-hidden="true"></i>
                 </span>
                 </a>
             </header>
 
-            <div class="card-content">
-                <div class="media">
-                    <div class="media-left">
-                        <div class="image is-48x48">
+            <div className="card-content">
+                <div className="media">
+                    <div className="media-left">
+                        <div className="image is-48x48">
                             <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder" />
                         </div>
                     </div>
-                    <div class="media-content">
-                        <p class="title is-5">John Smith</p>
-                        <p class="subtitle is-6">@email</p>
+                    <div className="media-content">
+                        <p className="title is-5">John Smith</p>
+                        <p className="subtitle is-6">@email</p>
                     </div>
-                    <div class="media-right">
+                    <div className="media-right">
                         <a>
-                            <span class="icon is-small"><i class="fa fa-heart"></i></span>
+                            <span className="icon is-small">
+				<i className="fa fa-heart"></i></span>
                             <span> 0</span>
                         </a>
                     </div>
                 </div>
 
-                <p>{ this.props.content || 'Conteúdo do Post' }</p> 
+                <p>{ this.props.post.content || 'Conteúdo do Post' }</p> 
                 
                 {/* LIKE AND DESLIKE, MAYBE SAVE OR SHARE */}
                 <br />
@@ -85,7 +86,6 @@ export default class Post extends Component {
                     return <Comment key={index} content={comment.content} author='Admin' />
                 })}
 
-                
             </div>
           </div>
         )
