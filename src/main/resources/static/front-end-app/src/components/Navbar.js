@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import Logo from './Logo'
+import SearchBar from './SearchBar'
 
 export default class NavBar extends Component {
     render () {
         return (
-            <div className="navbar is-primary">
+            <div className="navbar is-info">
                 <div className='container'>
                 <div className="navbar-brand">
-                    <a className="navbar-item" href="https://bulma.io">
+                    <a className="navbar-item" href="#logo">
                         <Logo />
                     </a>
                     <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
@@ -23,8 +24,15 @@ export default class NavBar extends Component {
                             Home
                         </a>
                     </div>
+                    
+		    <div className='navbar-item'>
+                   	 <SearchBar />
+		    </div>
 
                     <div className="navbar-end">
+
+
+                        
                         {/* has account */}
                         {   this.props.logged &&
                             (<div className="navbar-item has-dropdown is-hoverable">

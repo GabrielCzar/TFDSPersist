@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import List from '../components/List'
 import NavBar from '../components/Navbar'
+import Content from '../components/Content'
 
 export default class AppPage extends Component {
 
@@ -9,7 +9,7 @@ export default class AppPage extends Component {
             <div>
                 <NavBar />
 		
-		<List />
+		        <Content />
 
             </div>
         )
