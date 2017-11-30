@@ -1,7 +1,8 @@
 import React from 'react'
 import Post from './Post'
+import follow from '../services/Follow'
 
-const root = 'http://localhost:8080/api/posts';
+const root = 'http://localhost:8080/api';
 
 export default class PostList extends React.Component {
 	constructor(props) {
@@ -10,12 +11,20 @@ export default class PostList extends React.Component {
 	}
 
 	loadFromAPI() {
-		fetch(root, { mode: 'cors', headers: { 'Content-Type':'application/json' }})
-		.then((resp) => resp.json())
-		.then( response  => {
-			const posts = response._embedded.posts.map(a => ({ ...a, url: a._links.self.href }));
-			this.setState({ posts })
-		});
+		follow(fetch, root, [
+			{ rel: 'posts', 
+				params: { mode: 'cors', headers: { 'Content-Type':'application/json' }} }])
+				.then(resp => {console.log(resp)})		
+		//	  fetch(root, { mode: 'cors', headers: { 'Content-Type':'application/json' }})
+		//.then((resp) => resp.json())
+		//.then( response  => {
+		//	const posts = response._embedded.posts.map(a => ({ ...a, url: a._links.self.href }));
+		//	this.setState({ 
+		//		posts,
+		//		attributes: Object.keys(this.schema.properties),
+		//		links: response._links
+		//	})
+		//});
 	}	
 
 	async componentDidMount() {

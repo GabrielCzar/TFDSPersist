@@ -1,15 +1,12 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
+//const baseUrl = 'http://localhost:8080/login'
+//const opts = {
+// 'Authorization': 'Basic YWRtaW46YWRtaW4=',
+  //  'Content-type': 'application/x-www-form-urlencoded'
+//}
 export default class FormLogin extends React.Component {
-
-    async componentDidMouth() {
-	const baseUrl = 'http://localhost:8080/login'
-	const opts = {
-	   // 'Authorization': 'Basic YWRtaW46YWRtaW4=',
-	    'Content-type': 'application/x-www-form-urlencoded'
-	}
-    }
-
     render() {
         return (
             <form>
@@ -31,9 +28,11 @@ export default class FormLogin extends React.Component {
                 </div>
                 <div class="field">
                     <div className="level">
+                        {/* TODO */}
                         <div class="control level-left">
                             <button class="button is-text level-item">Esqueci a senha</button>
                         </div>
+                        
                         <div class="control level-right">
                             <button class="button is-success is-link level-item">
                                 <span>Entrar </span>
@@ -48,8 +47,9 @@ export default class FormLogin extends React.Component {
                 <div class="field">
                     <p className='level'>
                         <span className='level-item'>Não possui uma conta? </span>
-                        <a href='#singup' className='button is-success is-outlined level-item'> Cadastre-se</a>
-
+                        <NavLink to='/sign-up' className='button is-success is-outlined level-item'> 
+                            Cadastre-se
+                        </NavLink>
                     </p>
                 </div>
             </form>

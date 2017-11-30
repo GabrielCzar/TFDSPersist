@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import NavBar from '../components/Navbar'
-import List from '../components/List'
 
 export default class HomePage extends Component {
     render () {
@@ -9,7 +8,7 @@ export default class HomePage extends Component {
                 {/* <NavBar logged /> */}
                 <NavBar/>
 
-                <List />
+               
             </div>
         )
     }

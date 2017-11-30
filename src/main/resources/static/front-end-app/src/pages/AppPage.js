@@ -10,7 +10,6 @@ export default class AppPage extends Component {
                 <NavBar />
 		
 		        <Content />
-
             </div>
         )
     }

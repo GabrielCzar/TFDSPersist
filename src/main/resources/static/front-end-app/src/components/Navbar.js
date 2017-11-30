@@ -1,61 +1,63 @@
 import React, { Component } from 'react'
 import Logo from './Logo'
 import SearchBar from './SearchBar'
+import { NavLink } from 'react-router-dom'
 
 export default class NavBar extends Component {
     render () {
         return (
-            <div className="navbar is-info">
+            <div className="navbar is-link">
                 <div className='container'>
-                <div className="navbar-brand">
-                    <a className="navbar-item" href="#logo">
-                        <Logo />
-                    </a>
-                    <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <div className="navbar-brand">
+                        <div className="navbar-item">
+                            <Logo />
+                        </div>
+                        <div className="navbar-burger burger" data-target="navbar">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
-                </div>
 
-                <div id="navbarExampleTransparentExample" className="navbar-menu">
-                    <div className="navbar-start">
-                        <a className="navbar-item is-active" href="https://bulma.io/">
-                            Home
-                        </a>
-                    </div>
-                    
-		    <div className='navbar-item'>
-                   	 <SearchBar />
-		    </div>
-
-                    <div className="navbar-end">
-
-
+                    <div id="navbar" className="navbar-menu">
+                        <div className="navbar-start">
+                            <NavLink className="navbar-item is-active" to="/">
+                                Home&nbsp;<i class="fa fa-home" aria-hidden="true"></i>
+                            </NavLink>
+                        </div>
                         
-                        {/* has account */}
-                        {   this.props.logged &&
-                            (<div className="navbar-item has-dropdown is-hoverable">
-                                <a className='navbar-link' href='#ads'>
-                                    { this.props.name || 'Unknown' }
-                                </a>
-                                <div className="navbar-dropdown is-boxed">
-                                    <a className="navbar-item" href="#a">
-                                        Meu Perfil</a>
-                                    <a className="navbar-item" href="#a">
-                                        Sair</a>
-                                </div>
-                            </div>)
-                        }
-                        {/* Don't has account */}    
-                        <a className='navbar-item' href='#add'>
-                            Entrar</a>
-                        <a className='navbar-item' href='#dsad'>
-                            Cadastrar-se</a>
+                        <div className='navbar-item'>
+                            <SearchBar />
+                        </div>
+
+                        <div className="navbar-end">
+                            {/* has account */}
+                            {   this.props.logged &&
+                                (<div className="navbar-item has-dropdown is-hoverable">
+                                    <a className='navbar-link' href='#ads'>
+                                        { this.props.name || 'Unknown' }
+                                    </a>
+                                    <div className="navbar-dropdown is-boxed">
+                                        <NavLink className="navbar-item" to="/user">
+                                            Meu Perfil&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        </NavLink>
+                                        <NavLink className="navbar-item" to="/logout">
+                                            Sair&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        </NavLink>
+                                    </div>
+                                </div>)
+                            }
+                            {/* Don't has account */}    
+                            <NavLink className='navbar-item' to='/sign-in'>
+                                Entrar&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i>
+                            </NavLink>
+                            <NavLink className='navbar-item' to='/sign-up'>
+                                Cadastrar-se&nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i>
+                            </NavLink>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>    
+            </div>    
         )
     }
 }

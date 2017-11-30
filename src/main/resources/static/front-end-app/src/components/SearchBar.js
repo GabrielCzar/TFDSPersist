@@ -1,18 +1,48 @@
 import React, { Component } from 'react'
 
 export default class SearchBar extends Component {
+    constructor(props) { 
+        super(props) 
+
+        this.state = {
+            search: ''
+        }
+
+        this.handleSubmit = this.handleSubmit.bind(this) 
+        this.handleContentChange = this.handleContentChange.bind(this)
+    }
+
+    handleSubmit (e) 
+    {
+        // Search in API
+
+        this.setState({ search: '' })
+
+        e.preventDefault()
+    }
+
+    handleContentChange(e) {
+        this.setState({ search: e.target.value })
+    }
+
     render () {
         return (
-            <div class="field has-addons">
-                <div class="control">
-                    <input class="input" type="text" placeholder="Pesquisar" />
+            <form onSubmit={this.handleSubmit}>
+                <div className="field has-addons">
+                    <div className="control">
+                        <input className="input" 
+                        value={this.state.search} 
+                        onChange={this.handleContentChange} 
+                        type="text" 
+                        placeholder="Pesquisar" />
+                    </div>
+                    <div className="control">
+                        <button className="button is-white">
+                            <i className="fa fa-search"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="control">
-                    <a class="button is-white">
-                        <i class="fa fa-search"></i>
-                    </a>
-                </div>
-            </div>
+            </form>
         )
     }
 }

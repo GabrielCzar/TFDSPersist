@@ -6,7 +6,7 @@ class Content extends Component {
 	render () {
 		return (
 		<div className='container'>
-			<div className='columns x-space'>
+			<div className='columns x-space'> {/* So mostrar pra quem ta logado */}
 				<div className='column is-one-quarter'>
 					<Aside />
 				</div>

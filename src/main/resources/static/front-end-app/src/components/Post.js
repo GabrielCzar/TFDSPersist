@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Comment from './Comment'
+import { NavLink } from 'react-router-dom';
 
 export default class Post extends Component {
     constructor(props) { 
@@ -38,11 +39,11 @@ export default class Post extends Component {
                 <p className="card-header-title">
                     { this.props.post.title || 'Disciplina'}
                 </p>
-                <a href="#opts" className="card-header-icon" aria-label="more options">
-                <span className="icon">
-                    <i className="fa fa-angle-down" aria-hidden="true"></i>
-                </span>
-                </a>
+                <NavLink to="#opts" className="card-header-icon" aria-label="more options" >
+                    <span className="icon">
+                        <i className="fa fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                </NavLink>
             </header>
 
             <div className="card-content">
@@ -53,23 +54,24 @@ export default class Post extends Component {
                         </div>
                     </div>
                     <div className="media-content">
-                        <p className="title is-5">John Smith</p>
-                        <p className="subtitle is-6">@email</p>
+                        <p className="title is-5">{ this.props.post.author.name || 'John Smith' }</p>
+                        <p className="subtitle is-6">{ this.props.post.author.email || '@email' }</p>
                     </div>
                     <div className="media-right">
-                        <a>
+                        <NavLink >
                             <span className="icon is-small">
-				<i className="fa fa-heart"></i></span>
+                                <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
+                                {/* LIKED */}
+                                <i className="fa fa-hand-spock-o" aria-hidden="true"></i>
+                            </span>
                             <span> 0</span>
-                        </a>
+                        </NavLink>
                     </div>
                 </div>
 
                 <p>{ this.props.post.content || 'Conteúdo do Post' }</p> 
                 
-                {/* LIKE AND DESLIKE, MAYBE SAVE OR SHARE */}
                 <br />
-                
                 
                 <hr />
                 
