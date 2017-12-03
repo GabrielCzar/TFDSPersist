@@ -19,7 +19,7 @@ public class UIController {
 
     @RequestMapping("/token") @ResponseBody
     public Map<String, String> token(HttpSession session) {
-        return Collections.singletonMap("X-Auth-Token", session.getId());
+        return Collections.singletonMap("token", session.getId());
     }
 
     @RequestMapping("/home") @ResponseBody

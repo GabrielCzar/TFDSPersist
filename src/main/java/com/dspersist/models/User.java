@@ -25,23 +25,26 @@ public class User implements UserDetails {
     private @Version @JsonIgnore Long version;
     private @Id @GeneratedValue(strategy =  GenerationType.IDENTITY) Long id;
 
-    // Content
-    //@NotBlank(message = "O Nome é obrigatório")
+    //Content
     private String name;
+
     @Column(unique = true) @Email(message = "O email é inválido")
     private String email;
+
     private String photo;
+
     private @ManyToMany(mappedBy = "participants") Set<Group> groups;
 
     // Additional
     private @Transient String url;
+
     private @JsonIgnore String password;
+
     private @JsonIgnore String recoveryToken;
+
     private @JsonIgnore Boolean isEnable = true;
-    @ManyToMany(fetch = FetchType.EAGER)
-        @JoinTable(name="role_user",
-                joinColumns=@JoinColumn(name="user_id"),
-                inverseJoinColumns=@JoinColumn(name="role_id"))
+
+    @ManyToMany(fetch = FetchType.EAGER) @JoinTable(name="role_user", joinColumns=@JoinColumn(name="user_id"), inverseJoinColumns=@JoinColumn(name="role_id"))
     private @JsonIgnore List<Role> roles = new ArrayList<>();
 
     public User() { }
@@ -62,6 +65,8 @@ public class User implements UserDetails {
     public List<Role> getRoles() {
         return this.roles;
     }
+
+    // UserDetails Attributes
 
     @Override
     public String getName() {

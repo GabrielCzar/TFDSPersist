@@ -91,6 +91,10 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
         <!-- CONNECTION POOLED, SERVERS -->
         <dependency>
             <groupId>com.zaxxer</groupId>

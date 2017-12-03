@@ -1,6 +1,7 @@
 package com.dspersist.models;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Post {
     @Id
-    private String id;
+    private ObjectId id;
     private String title;
     private String content;
     
@@ -21,13 +22,4 @@ public class Post {
         this.content = content;
     }
 
-    public Post(String id, String title, String content) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-    }
-
-    public String getId() {
-        return id;
-    }
 }

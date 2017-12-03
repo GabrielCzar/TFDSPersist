@@ -45,11 +45,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
 
-    //@Autowired
-    //public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-      //  User.UserBuilder users = User.withDefaultPasswordEncoder();
-       // User user = (User) users.username("admin").password("admin").roles("ADMIN").build();
-      //  auth.inMemoryAuthentication().withUser(user);
-    //}
+    /*
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        User.UserBuilder users = User.withDefaultPasswordEncoder();
+        User user = (User) users.username("admin").password("admin").roles("ADMIN").build();
+        auth.inMemoryAuthentication().withUser(user);
+    }
+    */
 
 }
