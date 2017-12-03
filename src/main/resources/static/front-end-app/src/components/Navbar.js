@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Logo from './Logo'
-import SearchBar from './SearchBar'
 import { NavLink } from 'react-router-dom'
 
 export default class NavBar extends Component {
@@ -24,10 +23,6 @@ export default class NavBar extends Component {
                             <NavLink className="navbar-item is-active" to="/">
                                 Home&nbsp;<i class="fa fa-home" aria-hidden="true"></i>
                             </NavLink>
-                        </div>
-                        
-                        <div className='navbar-item'>
-                            <SearchBar />
                         </div>
 
                         <div className="navbar-end">

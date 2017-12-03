@@ -3,11 +3,11 @@ package com.dspersist.configurations;
 import com.dspersist.services.SpringUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import static com.dspersist.models.User.PASSWORD_ENCODER;
 
@@ -27,30 +27,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors()
+                .and()
                 .httpBasic()
                 .and()
-                .csrf()
-                .disable()
                 .authorizeRequests()
                 .antMatchers("/", "/bower_components/**", "/js/**", "/css/**",
-                        "/api*", "/api/**", "/404", "/favicon.ico")
-                .permitAll()
-                .antMatchers(HttpMethod.POST, "/login")
+                        "/api*", "/api/**", "/404", "/favicon.ico", "/token", "/login")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .logout()
-                .logoutSuccessUrl("/");
-        //   .csrfTokenRepository(CookieCsrfTokenRepository
-        //          .withHttpOnlyFalse());
+                .logoutSuccessUrl("/")
+                .and()
+                .csrf()
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
 
     //@Autowired
-    //  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-    // User.UserBuilder users = User.withDefaultPasswordEncoder();
-    //   User user = (User) users.username("admin").password("admin").roles("ADMIN").build();
-    //     auth.inMemoryAuthentication().withUser(user);
-    //   }
+    //public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+      //  User.UserBuilder users = User.withDefaultPasswordEncoder();
+       // User user = (User) users.username("admin").password("admin").roles("ADMIN").build();
+      //  auth.inMemoryAuthentication().withUser(user);
+    //}
 
 }
