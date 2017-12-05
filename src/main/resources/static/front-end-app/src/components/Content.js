@@ -11,7 +11,7 @@ class Content extends Component {
 					<Aside />
 				</div>
 				<div className='column'> 
-					<PostList />
+					{ this.props.comp }
 				</div>
 			</div>
 		</div>

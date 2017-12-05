@@ -20,8 +20,8 @@ export default class NavBar extends Component {
 
                     <div id="navbar" className="navbar-menu">
                         <div className="navbar-start">
-                            <NavLink className="navbar-item is-active" to="/">
-                                Home&nbsp;<i class="fa fa-home" aria-hidden="true"></i>
+                            <NavLink className="navbar-item is-active" to="/home">
+                                Home&nbsp;<i className="fa fa-home" aria-hidden="true"></i>
                             </NavLink>
                         </div>
 
@@ -44,10 +44,10 @@ export default class NavBar extends Component {
                             }
                             {/* Don't has account */}    
                             <NavLink className='navbar-item' to='/sign-in'>
-                                Entrar&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i>
+                                Entrar&nbsp;<i className="fa fa-sign-in" aria-hidden="true"></i>
                             </NavLink>
                             <NavLink className='navbar-item' to='/sign-up'>
-                                Cadastrar-se&nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i>
+                                Cadastrar-se&nbsp;<i className="fa fa-user-plus" aria-hidden="true"></i>
                             </NavLink>
                         </div>
                     </div>

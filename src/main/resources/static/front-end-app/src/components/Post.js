@@ -48,21 +48,17 @@ export default class Post extends Component {
 
             <div className="card-content">
                 <div className="media">
-                    <div className="media-left">
-                        <div className="image is-48x48">
-                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder" />
-                        </div>
-                    </div>
                     <div className="media-content">
-                        <p className="title is-5">{ this.props.post.author.name || 'John Smith' }</p>
-                        <p className="subtitle is-6">{ this.props.post.author.email || '@email' }</p>
+                        <p className="title is-6">{ this.props.post.user || 'Unknown' }</p>
+                        <p className="subtitle is-6">{ this.props.post.user || '@email' }</p>
                     </div>
                     <div className="media-right">
-                        <NavLink >
+                        <NavLink to='#'>
                             <span className="icon is-small">
-                                <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
-                                {/* LIKED */}
+                                <i className="fa fa-hand-rock-o" aria-hidden="true"></i>
+                                {/* LIKED 
                                 <i className="fa fa-hand-spock-o" aria-hidden="true"></i>
+                                */} 
                             </span>
                             <span> 0</span>
                         </NavLink>
@@ -85,7 +81,7 @@ export default class Post extends Component {
                 </form>
 
                 { this.state.comments.map((comment, index) => {
-                    return <Comment key={index} content={comment.content} author='Admin' />
+                    return <Comment key={index} content={comment.content} author='Unknown' />
                 })}
 
             </div>

@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage'
 import SignUpPage from './pages/SingUpPage'
 import NotFoundPage from './pages/NotFoundPage';
 import LoginPage from './pages/LoginPage';
+import GroupPage from './pages/GroupPage';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -30,6 +31,7 @@ class App extends Component {
             <Route path='/home' component={AppPage} />
             <Route path='/sign-up' component={SignUpPage} />
             <Route path='/sign-in' component={LoginPage} />
+            <Route path='/groups' component={GroupPage} />
             <Route component={NotFoundPage}/>
           </Switch>
         </Router>

@@ -15,6 +15,8 @@ public class Post {
     
     private User user;
 
+    private Group group;
+
     public Post() {}
 
     public Post(String title, String content) {

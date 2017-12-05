@@ -6,16 +6,7 @@ export default class MyGroups extends React.Component {
         super(props);
 
         this.state = {
-            groups: [
-                {
-                    name: 'teste',
-                    url: 'fodase'
-                },
-                {
-                    name: 'other',
-                    url: 'fodase'
-                }
-            ]
+            groups: []
         }
     }
 

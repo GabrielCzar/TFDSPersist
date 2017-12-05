@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import NavBar from '../components/Navbar'
 import Content from '../components/Content'
-import PostList from '../components/PostList'
+import GroupList from '../components/GroupList'
 
-export default class AppPage extends Component {
+export default class GroupPage extends Component {
 
     render () {
         return (
             <div>
                 <NavBar />
 		
-		        <Content comp={<PostList/>} />
+		        <Content comp={<GroupList />} />
 
             </div>
         )

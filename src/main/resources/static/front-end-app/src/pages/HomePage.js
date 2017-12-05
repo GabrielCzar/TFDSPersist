@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NavBar from '../components/Navbar'
-import Footer from '../components/Footer'
+//import Footer from '../components/Footer'
 import Home from '../components/Home'
 
 export default class HomePage extends Component {
@@ -14,7 +14,7 @@ export default class HomePage extends Component {
 
                 {/* Recent Posts */}
 
-                <Footer />
+               
             </div>
         )
     }

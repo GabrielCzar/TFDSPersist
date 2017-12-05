@@ -1,5 +1,5 @@
 module.exports = function follow(api, rootPath, relArray) {
-	var root = api(rootPath, { mode: 'cors', headers: { 'Content-Type':'application/json' }});
+	var root = api(rootPath, { mode: 'no-cors', headers: { 'Content-Type':'application/json' }});
 
 	return relArray.reduce(function(root, arrayItem) {
 		var rel = typeof arrayItem === 'string' ? arrayItem : arrayItem.rel;
@@ -17,10 +17,10 @@ module.exports = function follow(api, rootPath, relArray) {
 			}
 
 			if (typeof arrayItem === 'string') {
-				return api(response._links[rel].href, { mode: 'cors', headers: { 'Content-Type':'application/json' }});
+				return api(response._links[rel].href, { mode: 'no-cors', headers: { 'Content-Type':'application/json' }});
 			} else {
 				return api(response._links[rel].href, {
-					mode: 'cors', 
+					mode: 'no-cors', 
 					headers: { 'Content-Type':'application/json' },
 					params: arrayItem.params
 				});

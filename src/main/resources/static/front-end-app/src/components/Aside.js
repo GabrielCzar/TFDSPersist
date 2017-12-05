@@ -11,14 +11,15 @@ export default class Aside extends Component {
 						Geral
 					</p>
 				
-					<li><NavLink to='/posts' className='is-active is-info'>Feeds</NavLink></li>
-					<li><NavLink to='/add-group'>Criar Grupo</NavLink></li>
-					<li><NavLink to='/groups'>Todos os Grupos</NavLink></li>
+					<li><NavLink to='/home' className='is-active is-info'>Posts</NavLink></li>
+					
+					<li><NavLink to='/groups'>Grupos</NavLink></li>
 
 					<MyGroups />
 					
 					{/*
 					<li><NavLink to='#disciplinas'>Todas as disciplinas</NavLink></li>
+					<li><NavLink to='/add-group'>Criar Grupo</NavLink></li>
 					<li><NavLink to='#disciplinas'>Sugestões de Disciplinas</NavLink></li>
 					
 					*/}

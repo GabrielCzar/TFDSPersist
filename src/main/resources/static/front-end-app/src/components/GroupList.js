@@ -1,22 +1,22 @@
 import React from 'react'
-import Post from './Post'
+import Group from './Group'
 
 const root = 'http://localhost:8080/api';
 
-export default class PostList extends React.Component {
+export default class GroupList extends React.Component {
 	constructor(props) {
 	    super(props);
-		this.state = { posts: {}, attributes: [], links: {}}
+		this.state = { groups: {}, links: {}}
 	}
 
 	loadFromAPI() {
-		fetch(`${root}/posts`, { mode: 'cors', headers: { 'Content-Type':'application/json' }})
+		fetch(`${root}/groups`, { mode: 'cors', headers: { 'Content-Type':'application/json' }})
 			.then((resp) => resp.json())	
 			.then( response  => {
 			console.log(response);
-			const posts = response._embedded.posts.map(a => ({ ...a, url: a._links.self.href }));
+			const groups = response._embedded.groups.map(a => ({ ...a, url: a._links.self.href }));
 			this.setState({ 
-				posts,
+				groups,
 				//attributes: Object.keys(this.schema.properties),
 				links: response._links
 			})
@@ -28,20 +28,20 @@ export default class PostList extends React.Component {
 	}
 
     render () {
-        var posts = [];
-		var p = this.state.posts;
+        var groups = [];
+		var p = this.state.groups;
 		
 		for (let i = 0; i < p.length; i++) {
-			posts.push(
+			groups.push(
 				<div key={i} className='x-space'>
-					<Post key={p[i]._links.self.href} post={p[i]} />
+					<Group key={p[i]._links.self.href} group={p[i]} />
 				</div>
 			);
 		}
 
         return (
             <div>
-                {posts}
+                {groups}
            </div>
         )
     }

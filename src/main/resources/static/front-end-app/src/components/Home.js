@@ -7,27 +7,27 @@ export default class Home extends React.Component {
         return (
             <div className='x-space is-uppercase'>
                 <div className='container is-fluid'>
-                    <div class="tile is-ancestor">
-                        <div class="tile is-vertical">
-                            <div class="tile">
-                                <div class="tile is-parent is-vertical">
-                                    <article class="tile is-child notification is-primary">
-                                    <p class="title">Encontre o material desejado</p>
+                    <div className="tile is-ancestor">
+                        <div className="tile is-vertical">
+                            <div className="tile">
+                                <div className="tile is-parent is-vertical">
+                                    <article className="tile is-child notification is-primary">
+                                    <p className="title">Encontre o material desejado</p>
                                     </article>
                                 </div>
-                                <div class="tile is-parent">
-                                    <article class="tile is-child notification is-info">
-                                    <p class="title">Acompanhe suas disciplinas</p>
+                                <div className="tile is-parent">
+                                    <article className="tile is-child notification is-info">
+                                    <p className="title">Acompanhe suas disciplinas</p>
                                     </article>
                                 </div>
-                                <div class="tile is-parent is-vertical">
-                                    <article class="tile is-child notification is-danger">
-                                    <p class="title">Compartilhe materiais com outros estudantes</p>
+                                <div className="tile is-parent is-vertical">
+                                    <article className="tile is-child notification is-danger">
+                                    <p className="title">Compartilhe materiais com outros estudantes</p>
                                     </article>
                                 </div>
-                                <div class="tile is-parent">
-                                    <article class="tile is-child notification is-warning">
-                                    <p class="title">Faça perguntas</p>
+                                <div className="tile is-parent">
+                                    <article className="tile is-child notification is-warning">
+                                    <p className="title">Faça perguntas</p>
                                     </article>
                                 </div>
                             </div>
