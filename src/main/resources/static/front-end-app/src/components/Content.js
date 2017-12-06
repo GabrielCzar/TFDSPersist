@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Aside from './Aside'
-import PostList from './PostList'
+
 
 class Content extends Component {
 	render () {

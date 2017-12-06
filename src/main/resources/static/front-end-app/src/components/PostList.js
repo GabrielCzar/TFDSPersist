@@ -6,7 +6,7 @@ const root = 'http://localhost:8080/api';
 export default class PostList extends React.Component {
 	constructor(props) {
 	    super(props);
-		this.state = { posts: {}, attributes: [], links: {}}
+		this.state = { posts: {}, links: {}}
 	}
 
 	loadFromAPI() {

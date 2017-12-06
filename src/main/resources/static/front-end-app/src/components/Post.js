@@ -8,11 +8,28 @@ export default class Post extends Component {
 
         this.state = {
             comments: [],
-            newCommentContent: ''
+            newCommentContent: '',
+            clicked: false,
+            classClicked: 'fa fa-thumbs-o-up',
+
         }
 
+        this.clickLike = this.clickLike.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this) 
         this.handleContentChange = this.handleContentChange.bind(this)
+    }
+
+    clickLike(e) {
+        let withoutClass = 'fa fa-thumbs-up'
+        let withClass = 'fa fa-thumbs-o-up'
+        let cclick = this.state.clicked === true ? false : true
+        let cclass = cclick === true ?  withoutClass : withClass;
+        
+        console.log(cclass)
+
+        this.setState({clicked : cclick, classClicked : cclass})
+
+        e.preventDefault()
     }
 
     handleSubmit(e) {
@@ -33,6 +50,7 @@ export default class Post extends Component {
     }
 
     render () {
+
         return (
             <div className="card">
             <header className="card-header">
@@ -49,19 +67,15 @@ export default class Post extends Component {
             <div className="card-content">
                 <div className="media">
                     <div className="media-content">
-                        <p className="title is-6">{ this.props.post.user || 'Unknown' }</p>
-                        <p className="subtitle is-6">{ this.props.post.user || '@email' }</p>
+                        <p className="title is-6">{ this.props.post.email || 'Email' }</p>
+                        <p className="subtitle is-6">{ this.props.post.discipline || '@disciplina' }</p>
                     </div>
                     <div className="media-right">
-                        <NavLink to='#'>
-                            <span className="icon is-small">
-                                <i className="fa fa-hand-rock-o" aria-hidden="true"></i>
-                                {/* LIKED 
-                                <i className="fa fa-hand-spock-o" aria-hidden="true"></i>
-                                */} 
+                        <a onClick={this.clickLike}>
+                            <span className="icon is-small" >
+                                <i className={this.state.classClicked} aria-hidden="true"></i>
                             </span>
-                            <span> 0</span>
-                        </NavLink>
+                        </a>
                     </div>
                 </div>
 

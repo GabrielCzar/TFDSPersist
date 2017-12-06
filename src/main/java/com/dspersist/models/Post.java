@@ -12,16 +12,17 @@ public class Post {
     private ObjectId id;
     private String title;
     private String content;
-    
-    private User user;
 
-    private Group group;
+    private String email;
+
+    private String discipline;
 
     public Post() {}
 
-    public Post(String title, String content) {
+    public Post(String title, String content, String email, String discipline) {
         this.title = title;
         this.content = content;
+        this.email = email;
+        this.discipline = discipline;
     }
-
 }

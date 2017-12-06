@@ -11,7 +11,7 @@ export default class Aside extends Component {
 						Geral
 					</p>
 				
-					<li><NavLink to='/home' className='is-active is-info'>Posts</NavLink></li>
+					<li><NavLink to='/home'>Posts</NavLink></li>
 					
 					<li><NavLink to='/groups'>Grupos</NavLink></li>
 

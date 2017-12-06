@@ -3,6 +3,7 @@ package com.dspersist.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -13,7 +14,15 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String discipline;
+
+    public Group() {}
+
+    public Group(String discipline) {
+        this.discipline = discipline;
+        participants = new ArrayList<>();
+    }
 
     @ManyToMany
     @JoinTable(name = "participant_group",
